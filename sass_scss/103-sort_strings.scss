@@ -1,27 +1,11 @@
-$list_to_sort: john anna zoe kim felicia carrie;
+// Define the list to sort
+$list_to_sort: john, anna, zoe, kim, felicia, carrie;
 
-@function sort-list($list) {
-  // Convert list to a list map with indices
-  $list-map: ();
-  @for $i from 1 through length($list) {
-    $item: nth($list, $i);
-    $list-map: map-merge($list-map, ($item: $i));
-  }
+// Sort the list alphabetically
+$list_to_sort: sort($list_to_sort);
 
-  // Sort the list map by item values
-  $sorted-map: map-keys($list-map);
-  $sorted-map: sort($sorted-map);
-
-  // Build sorted list
-  $sorted-list: ();
-  @each $item in $sorted-map {
-    $index: map-get($list-map, $item);
-    $sorted-list: append($sorted-list, $item);
-  }
-
-  @return $sorted-list;
+// Iterate through the sorted list and output each element individually
+@each $item in $list_to_sort {
+  @debug $item;
 }
 
-$sorted_list: sort-list($list_to_sort);
-@debug $sorted_list;
-$
