@@ -1,11 +1,5 @@
-// Define the list to sort
-$list_to_sort: john, anna, zoe, kim, felicia, carrie;
+/* Sorts the variable $list_to_sort and prints the sorted list in the debug output */
 
-// Sort the list alphabetically
-$list_to_sort: sort($list_to_sort);
+@import '103-sort_list';
 
-// Iterate through the sorted list and output each element individually
-@each $item in $list_to_sort {
-  @debug $item;
-}
-
+@debug $list_to_sort;
